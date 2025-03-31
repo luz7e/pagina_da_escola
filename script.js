@@ -1,26 +1,21 @@
-let resultado = '';
+let display = document.getElementById('display');
 
-function adicionarNumero(num) {
-    resultado += num;
-    document.getElementById('display').value = resultado;
+function appendNumber(number) {
+    display.value += number;
 }
 
-function operar(operador) {
-    resultado += ' ' + operador + ' ';
-    document.getElementById('display').value = resultado;
+function appendOperator(operator) {
+    display.value += ' ' + operator + ' ';
 }
 
-function limpar() {
-    resultado = '';
-    document.getElementById('display').value = '';
+function clearDisplay() {
+    display.value = '';
 }
 
-function calcular() {
+function calculateResult() {
     try {
-        resultado = eval(resultado).toString();
-        document.getElementById('display').value = resultado;
-    } catch (e) {
-        document.getElementById('display').value = 'Erro';
-        resultado = '';
+        display.value = eval(display.value);
+    } catch (error) {
+        display.value = 'Erro';
     }
 }
