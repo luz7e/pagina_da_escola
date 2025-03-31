@@ -3,32 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora</title>
+    <title>Calculadora do Eduardo</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="calculadora">
-        <input type="text" id="display" class="display" disabled>
-        <div class="botoes">
-            <button class="botao" onclick="adicionarNumero('7')">7</button>
-            <button class="botao" onclick="adicionarNumero('8')">8</button>
-            <button class="botao" onclick="adicionarNumero('9')">9</button>
-            <button class="botao" onclick="operar('+')">+</button>
+    <div class="calculator">
+        <div class="display">
+            <input type="text" id="screen" disabled>
+        </div>
+        <div class="buttons">
+            <button class="btn" onclick="appendNumber(7)">7</button>
+            <button class="btn" onclick="appendNumber(8)">8</button>
+            <button class="btn" onclick="appendNumber(9)">9</button>
+            <button class="btn operator" onclick="appendOperator('+')">+</button>
 
-            <button class="botao" onclick="adicionarNumero('4')">4</button>
-            <button class="botao" onclick="adicionarNumero('5')">5</button>
-            <button class="botao" onclick="adicionarNumero('6')">6</button>
-            <button class="botao" onclick="operar('-')">-</button>
+            <button class="btn" onclick="appendNumber(4)">4</button>
+            <button class="btn" onclick="appendNumber(5)">5</button>
+            <button class="btn" onclick="appendNumber(6)">6</button>
+            <button class="btn operator" onclick="appendOperator('-')">-</button>
 
-            <button class="botao" onclick="adicionarNumero('1')">1</button>
-            <button class="botao" onclick="adicionarNumero('2')">2</button>
-            <button class="botao" onclick="adicionarNumero('3')">3</button>
-            <button class="botao" onclick="operar('*')">*</button>
+            <button class="btn" onclick="appendNumber(1)">1</button>
+            <button class="btn" onclick="appendNumber(2)">2</button>
+            <button class="btn" onclick="appendNumber(3)">3</button>
+            <button class="btn operator" onclick="appendOperator('*')">x</button>
 
-            <button class="botao" onclick="adicionarNumero('0')">0</button>
-            <button class="botao" onclick="limpar()">C</button>
-            <button class="botao" onclick="calcular()">=</button>
-            <button class="botao" onclick="operar('/')">/</button>
+            <button class="btn" onclick="appendNumber(0)">0</button>
+            <button class="btn" onclick="clearScreen()">C</button>
+            <button class="btn" onclick="calculateResult()">=</button>
+            <button class="btn operator" onclick="appendOperator('/')">/</button>
+        </div>
+        <div class="footer">
+            <p>Matemaquina do Eduardo</p>
         </div>
     </div>
 
