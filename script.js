@@ -50,4 +50,4 @@ function setOperacao(op) {
     operacao = op === '*' ? 'x' : op === '/' ? 'รท' : op;
     valorAnterior = resultado.value;
     resultado.value = '';
-} ib:fwck
+} // fwck
