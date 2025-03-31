@@ -1,26 +1,26 @@
-// Seleciona o campo de display
-let display = document.getElementById('display');
+let resultado = '';
 
-// Função para limpar o display
-function clearDisplay() {
-    display.value = '';
+function adicionarNumero(num) {
+    resultado += num;
+    document.getElementById('display').value = resultado;
 }
 
-// Função para adicionar números ao display
-function appendNumber(number) {
-    display.value += number;
+function operar(operador) {
+    resultado += ' ' + operador + ' ';
+    document.getElementById('display').value = resultado;
 }
 
-// Função para adicionar operadores ao display
-function appendOperator(operator) {
-    display.value += operator;
+function limpar() {
+    resultado = '';
+    document.getElementById('display').value = '';
 }
 
-// Função para calcular o valor no display
-function calculate() {
+function calcular() {
     try {
-        display.value = eval(display.value); // Calcula a expressão
+        resultado = eval(resultado).toString();
+        document.getElementById('display').value = resultado;
     } catch (e) {
-        display.value = 'Erro'; // Exibe "Erro" em caso de erro na expressão
+        document.getElementById('display').value = 'Erro';
+        resultado = '';
     }
 }
