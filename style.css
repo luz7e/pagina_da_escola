@@ -1,84 +1,107 @@
-/* Resetando margens e preenchimento padrão */
+/* Resetando margens e padding */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Estilo para o fundo da página */
+/* Corpo da página */
 body {
-    background-color: #1c1c1c;
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: #f4f4f4;
+}
+
+/* Título */
+.titulo {
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 /* Estilo da calculadora */
-.calculator {
-    background-color: #000;
+.calculadora {
+    background-color: #fff;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 280px;
 }
 
-/* Estilo para a tela da calculadora */
-.display input {
+/* Estilo da área de resultado */
+#resultado {
     width: 100%;
     height: 50px;
-    background-color: #222;
-    color: #fff;
-    font-size: 32px;
+    font-size: 2rem;
     text-align: right;
-    border: none;
+    padding: 10px;
+    border: 2px solid #ccc;
     border-radius: 5px;
-    padding-right: 10px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    color: #333;
 }
 
 /* Estilo dos botões */
-.buttons {
-    margin-top: 20px;
+.botões {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
 }
 
 button {
-    width: 60px;
-    height: 60px;
-    background-color: #d32f2f;
-    color: white;
-    border: none;
-    font-size: 24px;
+    font-size: 1.5rem;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border: 2px solid #ccc;
     border-radius: 5px;
-    margin: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
+    color: #333;
 }
 
 button:hover {
-    background-color: #b71c1c;
-}
-
-button.operator {
-    background-color: #1976d2;
-}
-
-button.operator:hover {
-    background-color: #1565c0;
+    background-color: #e0e0e0;
 }
 
 button:active {
-    background-color: #c2185b;
+    background-color: #ccc;
 }
 
-/* Estilo para o texto abaixo */
-.footer {
-    position: absolute;
-    bottom: 10px;
-    width: 100%;
+/* Botões de operação com cores diferentes */
+button:nth-child(2),
+button:nth-child(3),
+button:nth-child(4),
+button:nth-child(8) {
+    background-color: #ff9800;
+    color: white;
+}
+
+button:nth-child(2):hover,
+button:nth-child(3):hover,
+button:nth-child(4):hover,
+button:nth-child(8):hover {
+    background-color: #e68900;
+}
+
+/* Botão de igual */
+button.igual {
+    background-color: #4caf50;
+    color: white;
+}
+
+button.igual:hover {
+    background-color: #45a049;
+}
+
+/* Estilo para créditos */
+.creditos {
     text-align: center;
-    color: #fff;
-    font-size: 12px;
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 20px;
 }
