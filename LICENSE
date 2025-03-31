@@ -1,21 +1,37 @@
-MIT License
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculadora">
+        <input type="text" id="display" class="display" disabled>
+        <div class="botoes">
+            <button class="botao" onclick="adicionarNumero('7')">7</button>
+            <button class="botao" onclick="adicionarNumero('8')">8</button>
+            <button class="botao" onclick="adicionarNumero('9')">9</button>
+            <button class="botao" onclick="operar('+')">+</button>
 
-Copyright (c) 2024 luz7e
+            <button class="botao" onclick="adicionarNumero('4')">4</button>
+            <button class="botao" onclick="adicionarNumero('5')">5</button>
+            <button class="botao" onclick="adicionarNumero('6')">6</button>
+            <button class="botao" onclick="operar('-')">-</button>
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+            <button class="botao" onclick="adicionarNumero('1')">1</button>
+            <button class="botao" onclick="adicionarNumero('2')">2</button>
+            <button class="botao" onclick="adicionarNumero('3')">3</button>
+            <button class="botao" onclick="operar('*')">*</button>
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+            <button class="botao" onclick="adicionarNumero('0')">0</button>
+            <button class="botao" onclick="limpar()">C</button>
+            <button class="botao" onclick="calcular()">=</button>
+            <button class="botao" onclick="operar('/')">/</button>
+        </div>
+    </div>
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+    <script src="script.js"></script>
+</body>
+</html>
