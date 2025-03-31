@@ -1,26 +1,31 @@
-let resultado = '';
+let currentInput = "";
 
-function adicionarNumero(num) {
-    resultado += num;
-    document.getElementById('display').value = resultado;
+function appendNumber(number) {
+    currentInput += number;
+    document.getElementById("screen").value = currentInput;
 }
 
-function operar(operador) {
-    resultado += ' ' + operador + ' ';
-    document.getElementById('display').value = resultado;
+function appendOperator(operator) {
+    currentInput += " " + operator + " ";
+    document.getElementById("screen").value = currentInput;
 }
 
-function limpar() {
-    resultado = '';
-    document.getElementById('display').value = '';
+function clearScreen() {
+    currentInput = "";
+    document.getElementById("screen").value = currentInput;
 }
 
-function calcular() {
+function calculateResult() {
     try {
-        resultado = eval(resultado).toString();
-        document.getElementById('display').value = resultado;
+        // Substituindo x e / por * e / para avaliação correta
+        currentInput = currentInput.replace(/x/g, "*");
+        currentInput = currentInput.replace(/÷/g, "/");
+        
+        let result = eval(currentInput);
+        document.getElementById("screen").value = result;
+        currentInput = result.toString();
     } catch (e) {
-        document.getElementById('display').value = 'Erro';
-        resultado = '';
+        document.getElementById("screen").value = "Erro";
+        currentInput = "";
     }
 }
