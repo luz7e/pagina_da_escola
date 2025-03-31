@@ -14,9 +14,10 @@ function limpar() {
 
 function calcular() {
     let valorAtual = parseFloat(resultado.value);
-    if (valorAnterior === '' || resultado.value === '') return;
+    if (valorAnterior === '' || resultado.value === '') return; // Previne calcular sem valores válidos
     let total;
-    let operador = operacao === 'x' ? '*' : operacao === 'รท' ? '/' : operacao;
+    let operador = operacao;
+
     switch (operador) {
         case '+':
             total = parseFloat(valorAnterior) + valorAtual;
@@ -24,10 +25,10 @@ function calcular() {
         case '-':
             total = parseFloat(valorAnterior) - valorAtual;
             break;
-        case '*':
+        case 'x':
             total = parseFloat(valorAnterior) * valorAtual;
             break;
-        case '/':
+        case '÷':
             if (valorAtual === 0) {
                 resultado.value = 'Erro';
                 return;
@@ -45,9 +46,9 @@ function calcular() {
 function setOperacao(op) {
     if (resultado.value === '') return;
     if (valorAnterior !== '') {
-        calcular();
+        calcular(); // Se já houver valor anterior, calcula primeiro
     }
-    operacao = op === '*' ? 'x' : op === '/' ? 'รท' : op;
+    operacao = op;
     valorAnterior = resultado.value;
     resultado.value = '';
-} // fwck
+}
