@@ -1,67 +1,68 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  background-color: black;
-  color: white;
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
-.container {
-  text-align: center;
+h1 {
+    margin-top: 20px;
+    font-size: 24px;
 }
 
-.header h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+#calculator {
+    display: inline-block;
+    background-color: red;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
-.calculator {
-  display: inline-block;
-  background-color: #333;
-  padding: 20px;
-  border-radius: 10px;
+.display {
+    width: 240px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    text-align: right;
+    font-size: 24px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
-input {
-  width: 240px;
-  height: 50px;
-  margin-bottom: 10px;
-  background-color: #222;
-  color: white;
-  border: none;
-  text-align: right;
-  font-size: 1.5rem;
-  padding: 10px;
-  border-radius: 5px;
+.button-row {
+    margin-bottom: 10px;
 }
 
 button {
-  width: 50px;
-  height: 50px;
-  margin: 5px;
-  background-color: #555;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    background-color: black;
+    color: white;
+    border: 1px solid red;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-  background-color: #777;
+    background-color: darkred;
 }
 
-button:active {
-  background-color: #444;
+.clear {
+    background-color: red;
 }
 
-button:focus {
-  outline: none;
+.equal {
+    background-color: darkred;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 16px;
 }
