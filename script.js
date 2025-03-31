@@ -1,31 +1,53 @@
-let currentInput = "";
+let resultado = document.getElementById('resultado');
+let operacao = '';
+let valorAnterior = '';
 
-function appendNumber(number) {
-    currentInput += number;
-    document.getElementById("screen").value = currentInput;
+function adicionar(numero) {
+    resultado.value += numero;
 }
 
-function appendOperator(operator) {
-    currentInput += " " + operator + " ";
-    document.getElementById("screen").value = currentInput;
+function limpar() {
+    resultado.value = '';
+    operacao = '';
+    valorAnterior = '';
 }
 
-function clearScreen() {
-    currentInput = "";
-    document.getElementById("screen").value = currentInput;
-}
-
-function calculateResult() {
-    try {
-        // Substituindo x e / por * e / para avaliação correta
-        currentInput = currentInput.replace(/x/g, "*");
-        currentInput = currentInput.replace(/÷/g, "/");
-        
-        let result = eval(currentInput);
-        document.getElementById("screen").value = result;
-        currentInput = result.toString();
-    } catch (e) {
-        document.getElementById("screen").value = "Erro";
-        currentInput = "";
+function calcular() {
+    let valorAtual = parseFloat(resultado.value);
+    if (valorAnterior === '' || resultado.value === '') return;
+    let total;
+    let operador = operacao === 'x' ? '*' : operacao === 'รท' ? '/' : operacao;
+    switch (operador) {
+        case '+':
+            total = parseFloat(valorAnterior) + valorAtual;
+            break;
+        case '-':
+            total = parseFloat(valorAnterior) - valorAtual;
+            break;
+        case '*':
+            total = parseFloat(valorAnterior) * valorAtual;
+            break;
+        case '/':
+            if (valorAtual === 0) {
+                resultado.value = 'Erro';
+                return;
+            }
+            total = parseFloat(valorAnterior) / valorAtual;
+            break;
+        default:
+            return;
     }
+    resultado.value = total;
+    operacao = '';
+    valorAnterior = '';
 }
+
+function setOperacao(op) {
+    if (resultado.value === '') return;
+    if (valorAnterior !== '') {
+        calcular();
+    }
+    operacao = op === '*' ? 'x' : op === '/' ? 'รท' : op;
+    valorAnterior = resultado.value;
+    resultado.value = '';
+} ib:fwck
