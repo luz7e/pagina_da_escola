@@ -1,54 +1,29 @@
-let resultado = document.getElementById('resultado');
-let operacao = '';
-let valorAnterior = '';
+let display = document.getElementById('display');
+let expression = "";
 
-function adicionar(numero) {
-    resultado.value += numero;
+function adicionar(valor) {
+    if (display.innerText === "Erro") {
+        expression = "";
+        display.innerText = "";
+    }
+    expression += valor;
+    display.innerText = expression;
 }
 
 function limpar() {
-    resultado.value = '';
-    operacao = '';
-    valorAnterior = '';
+    expression = "";
+    display.innerText = "0";
 }
 
 function calcular() {
-    let valorAtual = parseFloat(resultado.value);
-    if (valorAnterior === '' || resultado.value === '') return; // Previne calcular sem valores válidos
-    let total;
-    let operador = operacao;
-
-    switch (operador) {
-        case '+':
-            total = parseFloat(valorAnterior) + valorAtual;
-            break;
-        case '-':
-            total = parseFloat(valorAnterior) - valorAtual;
-            break;
-        case 'x':
-            total = parseFloat(valorAnterior) * valorAtual;
-            break;
-        case '÷':
-            if (valorAtual === 0) {
-                resultado.value = 'Erro';
-                return;
-            }
-            total = parseFloat(valorAnterior) / valorAtual;
-            break;
-        default:
-            return;
+    try {
+        if (expression === "") {
+            display.innerText = "Erro";
+        } else {
+            display.innerText = eval(expression);
+            expression = display.innerText;
+        }
+    } catch (e) {
+        display.innerText = "Erro";
     }
-    resultado.value = total;
-    operacao = '';
-    valorAnterior = '';
-}
-
-function setOperacao(op) {
-    if (resultado.value === '') return;
-    if (valorAnterior !== '') {
-        calcular(); // Se já houver valor anterior, calcula primeiro
-    }
-    operacao = op;
-    valorAnterior = resultado.value;
-    resultado.value = '';
 }
