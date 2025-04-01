@@ -1,29 +1,21 @@
-let display = document.getElementById('display');
-let expression = "";
+let display = document.getElementById("display");
 
 function adicionar(valor) {
-    if (display.innerText === "Erro") {
-        expression = "";
-        display.innerText = "";
-    }
-    expression += valor;
-    display.innerText = expression;
+    display.value += valor;
 }
 
 function limpar() {
-    expression = "";
-    display.innerText = "0";
+    display.value = "";
+}
+
+function remover() {
+    display.value = display.value.slice(0, -1);
 }
 
 function calcular() {
     try {
-        if (expression === "") {
-            display.innerText = "Erro";
-        } else {
-            display.innerText = eval(expression);
-            expression = display.innerText;
-        }
-    } catch (e) {
-        display.innerText = "Erro";
+        display.value = eval(display.value);
+    } catch {
+        display.value = "Erro";
     }
 }
